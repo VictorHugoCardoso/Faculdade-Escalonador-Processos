@@ -1,26 +1,15 @@
 #include "header.h"
 
 processo *inicializa (processo * p, int id, int surto, int prioridade) {
-    processo *proc, *aux= p;
-    
-    if (p == NULL){
-      proc = (processo*)malloc(sizeof(processo));
-      proc->id = id;
-      proc->surto = surto;
-      proc->prioridade = prioridade;
-      proc->execucao = 0;
-      proc->espera = 0;
-      proc->prox = NULL;
-      p = proc;  
-    }
-
-    while (aux->prox != NULL){
-      aux = aux->prox;
-    }
-
-    printf("%d\n", aux->id);
-
-    return(p); 
+    processo *proc;
+    proc = (processo*)malloc(sizeof(processo)); 
+    proc->id = id;
+    proc->surto = surto;
+    proc->prioridade = prioridade;
+    proc->execucao = 0;
+    proc->espera = 0;
+    proc->prox = p;
+    return(proc);
 };
 
 processo*  inicializaArquivo(char* txt, processo *p){
