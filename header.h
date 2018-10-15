@@ -12,6 +12,8 @@ typedef struct processos {
     struct processos *prox;
 }processo ;
 
+int vazia(processo *l);
+processo* invertelista(processo* l);
 processo *inicializaArquivo(char* txt, processo *p);
 processo *inicializa (processo * p, int id, int surto, int prioridade);
 void fcfs (processo *proc);

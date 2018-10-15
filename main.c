@@ -1,14 +1,10 @@
 #include "funcoes.c"
 
-int main (void) {
+int main (int argc, char*argv[]) {
 
     processo *lista, *temp = NULL;
     
-    //lista = inicializaArquivo("entrada.txt", lista);
-    lista = inicializa(lista, 1,2,3);
-    lista = inicializa(lista, 2,2,3);
-    lista = inicializa(lista, 4,2,3);
-    lista = inicializa(lista, 10,2,3);
+    lista = inicializaArquivo(argv[1], lista);
 
     listprocs(lista);
     fcfs(lista);   
