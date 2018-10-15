@@ -1,22 +1,23 @@
 #include "funcoes.c"
 
 int main (void) {
+
+    processo *lista, *temp = NULL;
     
-    struct processos *plist, *ptmp;
-    plist       = init_processos(1, 10, 3);
-    plist->prox = init_processos(2,  1, 1); ptmp = plist->prox;
-    ptmp->prox  = init_processos(3,  2, 3); ptmp = ptmp->prox;
-    ptmp->prox  = init_processos(4,  1, 4); ptmp = ptmp->prox;
-    ptmp->prox  = init_processos(5,  5, 2);
+    //lista = inicializaArquivo("entrada.txt", lista);
+    lista = inicializa(lista, 1,2,3);
+    lista = inicializa(lista, 2,2,3);
+    lista = inicializa(lista, 4,2,3);
+    lista = inicializa(lista, 10,2,3);
+
+    listprocs(lista);
+    fcfs(lista);   
+    prioridade(lista);
     
-    listprocs(plist);
-    fcfs(plist);   
-    prioridade(plist);
-    
-    while (plist != NULL) {
-        ptmp = plist;
-        plist = plist->prox;
-        free(ptmp);
+    while (lista != NULL) {
+        temp = lista;
+        lista = lista->prox;
+        free(temp);
     };
     return(0);
 };
